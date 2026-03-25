@@ -1,0 +1,882 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-y: scroll;
+    min-height: 100%;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.2;
+}
+
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 60px;
+    letter-spacing: 3px;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00e676, #00c853);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+footer {
+    padding: 30px 20px;
+}
+
+a {
+    transition: color 0.3s ease;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    padding: 20px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo-dot {
+    color: #00e676;
+    font-size: 36px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menuMobile {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menuMobile div {
+    background-color: #fff;
+    height: 2px;
+    width: 28px;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu ul {
+    display: flex;
+    gap: 8px;
+}
+
+.menu ul li {
+    list-style: none;
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 14px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.menu ul a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================
+   HERO BANNER
+   ============================================ */
+#banner {
+    height: 100vh;
+    max-width: 100vw;
+    background-image: url(../images/main2.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+    text-align: center;
+}
+
+#banner > div {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.banner-greeting {
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #00e676;
+    margin-bottom: 10px;
+    font-weight: 500;
+    animation-delay: 0.2s;
+}
+
+#banner h1 {
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    animation-delay: 0.4s;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    font-family: 'Fira Code', 'Inter', monospace;
+    min-height: 1.2em;
+}
+
+#banner h1 .matrix-letter {
+    display: inline-block;
+    opacity: 0;
+    color: #00ff41;
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.6), 0 0 20px rgba(0, 255, 65, 0.3);
+    animation: matrixReveal 0.4s forwards;
+    position: relative;
+}
+
+#banner h1 .matrix-letter.decoded {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+    transition: color 0.8s ease, text-shadow 0.8s ease;
+}
+
+#banner h1 .matrix-letter.space {
+    width: 0.3em;
+    opacity: 1;
+}
+
+#banner h1 .matrix-scramble {
+    color: #00ff41;
+    text-shadow: 0 0 12px rgba(0, 255, 65, 0.8), 0 0 30px rgba(0, 255, 65, 0.4);
+    opacity: 1;
+}
+
+@keyframes matrixReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        filter: blur(4px);
+    }
+    50% {
+        opacity: 1;
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes matrixGlow {
+    0%, 100% {
+        text-shadow: 0 0 8px rgba(0, 255, 65, 0.6), 0 0 20px rgba(0, 255, 65, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 255, 65, 0.9), 0 0 35px rgba(0, 255, 65, 0.5);
+    }
+}
+
+.banner-role {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    animation-delay: 0.6s;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.banner-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    animation-delay: 0.8s;
+}
+
+.banner-tags span {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(5px);
+}
+
+.banner-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    animation-delay: 1s;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00e676, #00c853);
+    color: #0a0a0a;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 230, 118, 0.3);
+}
+
+.btn-outline {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+#about {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about .info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about h3 {
+    font-size: 28px;
+    color: #00e676;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+#about p {
+    line-height: 1.8;
+    color: #bbb;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+#about strong {
+    color: #fff;
+}
+
+.about-highlights {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: center;
+}
+
+.highlight {
+    text-align: center;
+}
+
+.highlight-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: #00e676;
+    margin-bottom: 6px;
+}
+
+.highlight-label {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   EXPERIENCE SECTION (TIMELINE)
+   ============================================ */
+#experience {
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #00e676, rgba(0, 230, 118, 0.1));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -40px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #0a0a0a;
+    border: 3px solid #00e676;
+    z-index: 1;
+}
+
+.timeline-item:first-child .timeline-marker {
+    background-color: #00e676;
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    border-color: rgba(0, 230, 118, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-header {
+    margin-bottom: 16px;
+}
+
+.timeline-header h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.timeline-company {
+    display: block;
+    color: #00e676;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.timeline-date {
+    display: block;
+    color: #666;
+    font-size: 13px;
+    font-family: 'Fira Code', monospace;
+}
+
+.timeline-content > p {
+    color: #aaa;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.timeline-details {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.timeline-details li {
+    position: relative;
+    padding-left: 20px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.timeline-details li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #00e676;
+    font-size: 14px;
+}
+
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.timeline-tags span {
+    background: rgba(0, 230, 118, 0.08);
+    color: #00e676;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Fira Code', monospace;
+    border: 1px solid rgba(0, 230, 118, 0.15);
+}
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+#skills {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    border-color: rgba(0, 230, 118, 0.15);
+    transform: translateY(-3px);
+}
+
+.skill-category h4 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-category h4 i {
+    color: #00e676;
+    font-size: 18px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ddd;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(0, 230, 118, 0.1);
+    border-color: rgba(0, 230, 118, 0.2);
+    color: #fff;
+}
+
+.skill-tag::after {
+    content: attr(data-years);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: #00e676;
+    color: #0a0a0a;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* ============================================
+   EDUCATION SECTION
+   ============================================ */
+#education {
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.education-card:hover {
+    border-color: rgba(0, 230, 118, 0.15);
+    transform: translateY(-3px);
+}
+
+.education-icon {
+    margin-bottom: 20px;
+}
+
+.education-icon i {
+    font-size: 36px;
+    color: #00e676;
+}
+
+.education-card h4 {
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.education-institution {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.education-year {
+    color: #00e676;
+    font-size: 13px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+#contact {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: rgba(0, 230, 118, 0.15);
+    transform: translateY(-3px);
+}
+
+.contact-card i {
+    font-size: 28px;
+    color: #00e676;
+    margin-bottom: 16px;
+}
+
+.contact-card h5 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.contact-card p {
+    color: #999;
+    font-size: 14px;
+}
+
+.contact-card a {
+    color: #00e676;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #69f0ae;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    text-align: center;
+    background-color: #0a0a0a;
+    color: #555;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET
+   ============================================ */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .education-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-highlights {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 750px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .menuMobile {
+        display: flex;
+    }
+
+    .menu ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background-color: rgba(20, 20, 20, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .menu ul li {
+        margin: 0;
+    }
+
+    .menu ul a {
+        display: block;
+        padding: 14px 24px;
+        border-radius: 0;
+        font-size: 14px;
+    }
+
+    .menu ul a:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    #banner h1 {
+        font-size: 42px;
+    }
+
+    .banner-role {
+        font-size: 18px;
+    }
+
+    .banner-tags {
+        gap: 8px;
+    }
+
+    .banner-tags span {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+
+    .banner-cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    .timeline {
+        padding-left: 30px;
+    }
+
+    .timeline-marker {
+        left: -30px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline::before {
+        left: 6px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 16px;
+    }
+}
+
+@media (max-width: 520px) {
+    .contact-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-highlights {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    #banner h1 {
+        font-size: 34px;
+    }
+
+    .banner-greeting {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+}
