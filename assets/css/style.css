@@ -633,6 +633,7 @@ header .container {
     padding: 32px 24px;
     text-align: center;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .education-card:hover {
