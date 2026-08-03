@@ -608,6 +608,67 @@ header .container {
     transform: translateX(-50%) scale(1);
 }
 
+/* Skill proficiency levels */
+.skills-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-dot.expert   { background: #00e676; }
+.legend-dot.advanced { background: #409cff; }
+.legend-dot.intermediate { background: #444; }
+
+.skill-tag[data-level="expert"] {
+    border-color: rgba(0, 230, 118, 0.3);
+    color: #c8f7e0;
+}
+
+.skill-tag[data-level="advanced"] {
+    border-color: rgba(64, 156, 255, 0.25);
+    color: #c5d9f5;
+}
+
+.skill-tag[data-level="expert"]:hover {
+    background: rgba(0, 230, 118, 0.12);
+    border-color: rgba(0, 230, 118, 0.5);
+    color: #fff;
+}
+
+.skill-tag[data-level="advanced"]:hover {
+    background: rgba(64, 156, 255, 0.1);
+    border-color: rgba(64, 156, 255, 0.5);
+    color: #fff;
+}
+
+.skill-tag[data-level="expert"]::after {
+    background: #00e676;
+    color: #0a0a0a;
+}
+
+.skill-tag[data-level="advanced"]::after {
+    background: #409cff;
+    color: #0a0a0a;
+}
+
 /* ============================================
    EDUCATION SECTION
    ============================================ */
